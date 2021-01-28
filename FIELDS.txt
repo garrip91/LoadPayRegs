@@ -1,0 +1,33 @@
+# ВЕРБОСЫ:
+Организация
+Назначение материала
+Назначение счёта
+Номер договора
+Сумма по договору
+Оплачено (paid1)
+Номер счёта
+Дата счёта
+Сумма по счётам
+В оплату
+Остаток по оплате
+Оплачено (paid2)
+Остаток
+Примечание
+
+================
+
+# ПЕРЕМЕННЫЕ ДЛЯ models.py:
+organization
+material_assigning
+account_purpose
+contract_number
+contract_amount
+paid1
+account_number
+account_date
+accounts_amount
+for_payment
+payment_balance
+paid2
+remainder
+note
