@@ -31,3 +31,5 @@ payment_balance
 paid2
 remainder
 note
+result_sum1
+result_sum2
