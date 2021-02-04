@@ -1,7 +1,5 @@
 from django.db import models
 
-from django.db.models import Sum
-
 # Create your models here:
 class Document(models.Model):
     docfile = models.FileField(upload_to='docs/')
@@ -21,11 +19,5 @@ class TableColumns(models.Model):
     paid2 = models.DecimalField(max_digits=14, decimal_places=2, verbose_name="Оплачено", null=True, blank=True)
     remainder = models.DecimalField(max_digits=14, decimal_places=2, verbose_name="Остаток", null=True, blank=True)
     note = models.CharField(max_length=255, verbose_name="Примечание", null=True, blank=True)
-    
-    @property
-    def result_sum(self):
-        result_sum1 = TableColumns.objects.filter(accounts_amount__isnull=True).aggregate(Sum('accounts_amount'))
-        result_sum2 = TableColumns.objects.filter(payment_balance__isnull=True).aggregate(Sum('payment_balance'))
-        return (result_sum1, result_sum2)
     #result_sum1 = TableColumns.objects.aggregate(Sum('accounts_amount'))
     #result_sum2 = TableColumns.objects.aggregate(Sum('payment_balance'))
