@@ -1,11 +1,13 @@
 from django.shortcuts import render
-
+ 
 from django.http import HttpResponseRedirect
 from .forms import UploadFileForm
-
+ 
+from .models import TableColumns
+ 
 # Воображаемая функция для обработки загруженного файла:
-### ...
-
+###
+ 
 # Create your views here:
 def upload_file(request):
     if request.method == 'POST':
