@@ -28,3 +28,10 @@ def upload_file(request):
         context['url'] = fs.url(name)
         #print(url)
     return render(request, 'upload_file.html', context)
+    
+def table(request):
+    #context = {}
+    return render(request, 'table.html')
+    
+def redirect_result(request):
+    return redirect('table.html')

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}<title>Страница загрузки файла</title>{% endblock %}
+
 {% block content %}
     <h2>Загрузка файла</h2>
 	<form method="POST" enctype="multipart/form-data">
@@ -10,4 +12,8 @@
 	{% if url %}
 	    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
 	{% endif %}
+	<form method="POST" action="../table/">
+	    {% csrf_token %}
+	    <button type="submit" class="btn btn-primary">Таблица</button>
+	</form>
 {% endblock %}

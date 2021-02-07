@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('upload_file/', views.upload_file, name='upload_file'),
+    path('table/', views.table, name='table'),
     path('admin/', admin.site.urls),
 ]
 
