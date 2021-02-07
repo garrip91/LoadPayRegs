@@ -30,8 +30,9 @@ def upload_file(request):
     return render(request, 'upload_file.html', context)
     
 def table(request):
-    #context = {}
-    return render(request, 'table.html')
+    row = TableAndUrlColumns.objects.all()
+    context = {'row_list': row}
+    return render(request, 'table.html', context)
     
 def redirect_result(request):
     return redirect('table.html')

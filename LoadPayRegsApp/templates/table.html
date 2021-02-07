@@ -2,38 +2,53 @@
 
 
         {% block title %}
-		    <title>Таблица реестра</title>
+		    <title>Таблица реестра по двлд. Лайково</title>
 		{% endblock %}
-    
+		
+		
         
 		{% block content %}
-		    <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+		    <h1 align="center">Подрядчики по дому № 68</h1>
+		    <table class="table table-bordered border-primary">
+                <thead class="table-dark">
+                    <tr>                        
+						<th scope="col">№</th>
+						<th scope="col">Организация</th>
+                        <th scope="col">Назначение материала</th>
+                        <th scope="col">Назначение счёта</th>
+                        <th scope="col">№ договора</th>
+						<th scope="col">Сумма по договору</th>
+						<th scope="col">Оплачено</th>
+						<th scope="col">№ счёта</th>
+						<th scope="col">Дата счёта</th>
+						<th scope="col">Сумма по счётам</th>
+						<th scope="col">В оплату</th>
+						<th scope="col">Остаток по оплате</th>
+						<th scope="col">Оплачено</th>
+						<th scope="col">Остаток</th>
+						<th scope="col">Примечание</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                    {% for row in row_list %}
+					    <tr>
+						    <th>{{ row.id }}</th>
+							<td>{{ row.organization }}</td>
+						    <td>{{ row.material_assigning }}</td>
+							<td>{{ row.account_purpose }}</td>
+							<td align="right">{{ row.contract_number }}</td>
+							<td align="right">{{ row.contract_amount }}</td>
+							<td align="right">{{ row.paid1 }}</td>
+							<td align="right">{{ row.account_number }}</td>
+							<td>{{ row.account_date }}</td>
+							<td align="right">{{ row.accounts_amount }}</td>
+							<td align="right">{{ row.for_payment }}</td>
+							<td align="right">{{ row.payment_balance }}</td>
+							<td align="right">{{ row.paid2 }}</td>
+							<td align="right">{{ row.remainder }}</td>
+							<td>{{ row.note }}</td>
+                        </tr>
+					{% endfor %}
                 </tbody>
             </table>
 		{% endblock %}
