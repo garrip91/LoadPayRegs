@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, CreateView
 from django.core.files.storage import FileSystemStorage
 from .forms import TableAndUrlColumnsForm 
-from .models import TableAndUrlColumns
+from .models import DocFile, TableAndUrlColumns
+from .utils import total_result
  
 # Воображаемая функция для обработки загруженного файла:
 ###
@@ -31,7 +32,12 @@ def upload_file(request):
     
 def table(request):
     row = TableAndUrlColumns.objects.all()
-    context = {'row_list': row}
+    res1, res2 = total_result()
+    context = {
+        'row_list': row,
+        'result_1': res1,
+        'result_2': res2,
+    }
     return render(request, 'table.html', context)
     
 def redirect_result(request):

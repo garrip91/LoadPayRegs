@@ -1,9 +1,0 @@
-D:\Programming\Python\djprojects\xlsx_to_web>virtualenv --python=C:\Users\SysAdmin\AppData\Local\Programs\Python\Python39\python.exe venv
-
-
-
-C:\Users\SysAdmin\AppData\Local\Programs\Python\Python39\Scripts\
-C:\Users\SysAdmin\AppData\Local\Programs\Python\Python39\
-%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
-%PyCharm%
-C:\Users\SysAdmin\AppData\Local\Programs\Python\Python39\Lib\site-packages

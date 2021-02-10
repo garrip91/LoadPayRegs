@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import TableAndUrlColumns
+from .models import DocFile, TableAndUrlColumns
 
 class UploadFileForm(forms.Form):
     title = forms.CharField(max_length=50)
