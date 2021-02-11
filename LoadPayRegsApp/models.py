@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here:
 class DocFile(models.Model):
-    docfile = models.FileField(upload_to='docs/', verbose_name="Загрузка файла", null=True, blank=True)
+    #docfile = models.FileField(upload_to='docs/', verbose_name="Загрузка файла", null=True, blank=True)
+    docfile = models.FileField(verbose_name="Загрузка файла", null=True, blank=True)
     
     class Meta:
         verbose_name = "Загрузка файла"
@@ -42,9 +43,3 @@ class TableAndUrlColumns(models.Model):
         
     def __str__(self):
         return self.organization
-        
-    # ====== Пример для корректировки: ======
-    #def save(self, *args, **kwargs):
-        #if not self.slug:
-            #self.slug = from_cyrillic_to_eng(str(self.name))
-        #super().save(*args, **kwargs)
