@@ -5,7 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from .forms import TableAndUrlColumnsForm 
 from .models import DocFile, TableAndUrlColumns
 #from .utils import total_result
-from .utils import total_result, read_doc
+from .utils import read_doc, total_result
  
 # Воображаемая функция для обработки загруженного файла:
 ###
@@ -31,12 +31,20 @@ def upload_file(request):
 def table(request):
     row = TableAndUrlColumns.objects.all()
     res1, res2 = total_result()
-    context = {
+    context_1 = {
         'row_list': row,
         'result_1': res1,
         'result_2': res2,
     }
-    return render(request, 'table.html', context)
+    #context_2 = read_doc.A_dict
+    #return render(request, 'table.html', context_1, context_2)
+    return render(request, 'table.html', context_1)
+    
+def test_page(request):
+    context_2 = read_doc
+    return render(request, 'test_page.html', {
+        'A_dict': context_2
+    })
     
 def redirect_result(request):
     return redirect('table.html')

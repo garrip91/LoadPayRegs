@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+        {% block title %}
+		    <title>Таблица реестра по двлд. Лайково</title>
+		{% endblock %}
+		
+		
+        
+		{% block content %}
+		    {% for i in A_dict %}
+			    <p>{{ i }}</p>
+			{% endfor %}
+		{% endblock %}
