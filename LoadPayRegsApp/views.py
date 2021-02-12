@@ -6,6 +6,7 @@ from .forms import TableAndUrlColumnsForm
 from .models import DocFile, TableAndUrlColumns
 #from .utils import total_result
 from .utils import read_doc, total_result
+from django.conf import settings
  
 # Воображаемая функция для обработки загруженного файла:
 ###
@@ -41,7 +42,7 @@ def table(request):
     return render(request, 'table.html', context_1)
     
 def test_page(request):
-    context_2 = read_doc
+    context_2 = read_doc(settings.MEDIA_ROOT / 'contractors_and_suppliers.xlsx')
     return render(request, 'test_page.html', {
         'A_dict': context_2
     })
