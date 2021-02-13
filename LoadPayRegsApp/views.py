@@ -42,7 +42,8 @@ def table(request):
     return render(request, 'table.html', context_1)
     
 def test_page(request):
-    context_2 = read_doc(settings.MEDIA_ROOT / 'contractors_and_suppliers.xlsx')
+    #context_2 = read_doc(settings.MEDIA_ROOT / 'contractors_and_suppliers.xlsx')
+    context_2 = read_doc(settings.MEDIA_ROOT / DocFile.objects.only('docfile'))
     return render(request, 'test_page.html', {
         'A_dict': context_2
     })
