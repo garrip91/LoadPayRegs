@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here:
 class DocFile(models.Model):
-    #docfile = models.FileField(upload_to='docs/', verbose_name="Загрузка файла", null=True, blank=True)
     docfile = models.FileField(verbose_name="Загрузка файла", null=True, blank=True)
     
     class Meta:
@@ -16,7 +15,6 @@ class DocFile(models.Model):
     
     
 class TableAndUrlColumns(models.Model):
-    #url = models.URLField(null=True, blank=True)
     docfile = models.ForeignKey('DocFile', on_delete=models.CASCADE, verbose_name="Ссылка", null=True, blank=True)
     organization = models.CharField(max_length=255, verbose_name="Организация", default="", blank=True)
     material_assigning = models.CharField(max_length=255, verbose_name="Назначение материала", default="", blank=True)
@@ -33,8 +31,6 @@ class TableAndUrlColumns(models.Model):
     remainder = models.DecimalField(max_digits=14, decimal_places=2, verbose_name="Остаток", null=True, blank=True)
     note = models.CharField(max_length=255, verbose_name="Примечание", default="", blank=True)
     total = models.DecimalField(max_digits=14, decimal_places=2, verbose_name="Сумма-1", null=True, blank=True)
-    #result_sum1 = TableColumns.objects.aggregate(Sum('accounts_amount'))
-    #result_sum2 = TableColumns.objects.aggregate(Sum('payment_balance'))
     
     class Meta:
         verbose_name = "Запись с реестра"
