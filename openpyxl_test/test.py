@@ -1,7 +1,7 @@
 import openpyxl
 
 # Читаем excel-файл:
-wb = openpyxl.load_workbook('сontractors_and_suppliers.xlsx')
+wb = openpyxl.load_workbook('contractors_and_suppliers.xlsx')
 
 sheets = wb.sheetnames
 
@@ -38,10 +38,10 @@ sheet = wb[sheets[0]]
 
 # ====== Проходим циклом по типам и значениям содержимых нужной нам колонки (колонки - латинские буквы, строки - числа): ====== #
 # ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O']
-column = sheet['O'][3:-1]
+column = sheet['I'][3:-1]
 for cell in column:
     print(type(cell.value))
-    print(cell.value)
+    print(cell.value.strftime('%d.%m.%Y'))
 # ============================================================================================================================= #        
 
 # ====== Выводим значения всех ячеек активного листа: ====== #

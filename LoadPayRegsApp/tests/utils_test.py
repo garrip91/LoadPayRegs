@@ -1,9 +1,9 @@
 import openpyxl
 from pathlib import Path
-from LoadPayRegsProject.settings import MEDIA_ROOT
-
-from .models import TableAndUrlColumns
-from django.db.models import Sum
+# Импорты ниже закомментированы в режиме тестирования:
+#from LoadPayRegsProject.settings import MEDIA_ROOT
+#from .models import TableAndUrlColumns
+#from django.db.models import Sum
 
 def read_doc(xlsx_file_path):
     wb = openpyxl.load_workbook(xlsx_file_path)
@@ -120,9 +120,17 @@ def read_doc(xlsx_file_path):
     
     zipped_result = zip(A_list, B_list, C_list, D_list, E_list, F_list, G_list, H_list, I_list, J_list, K_list, L_list, M_list, N_list, O_list)
     
+    #result = (A_list, B_list, C_list, D_list, E_list, F_list, G_list, H_list, I_list, J_list, K_list, L_list, M_list, N_list, O_list)
+    
     result = list(zipped_result)
 
     return result
+
+test = read_doc('contractors_and_suppliers.xlsx')[0]
+    
+# for i in test:
+    # print(type(i))
+    # print(i)
 
 # def total_result():
     # result1 = TableAndUrlColumns.objects.filter(accounts_amount__isnull=False).aggregate(Sum('accounts_amount'))
@@ -137,3 +145,5 @@ def total_result(xlsx_file_path):
         sum2 += i[11]
     result = [sum1, sum2]
     return result
+    
+print(total_result('contractors_and_suppliers.xlsx')[0])

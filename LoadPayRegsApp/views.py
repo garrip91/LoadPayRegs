@@ -22,18 +22,24 @@ def upload_file(request):
     
 def table(request):
     row = TableAndUrlColumns.objects.all()
-    res1, res2 = total_result()
-    context_1 = {
-        'row_list': row,
-        'result_1': res1,
-        'result_2': res2,
+    #res1, res2 = total_result()
+    zipped_result = read_doc(settings.MEDIA_ROOT / DocFile.objects.all()[0].docfile.name)
+    sum1 = total_result(settings.MEDIA_ROOT / DocFile.objects.all()[0].docfile.name)[0]
+    sum2 = total_result(settings.MEDIA_ROOT / DocFile.objects.all()[0].docfile.name)[1]
+    context = {
+        #'row_list': row,
+        #'result_1': res1,
+        #'result_2': res2,
+        'zipped_result': zipped_result,
+        'sum1': sum1,
+        'sum2': sum2
     }
-    return render(request, 'table.html', context_1)
+    return render(request, 'table.html', context)
     
 def test_page(request):
-    context_2 = read_doc(settings.MEDIA_ROOT / DocFile.objects.all()[0].docfile.name)
+    context = read_doc(settings.MEDIA_ROOT / DocFile.objects.all()[0].docfile.name)
     return render(request, 'test_page.html', {
-        'A_dict': context_2
+        'A_dict': context[8]
     })
     
 def redirect_result(request):

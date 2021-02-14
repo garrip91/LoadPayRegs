@@ -31,8 +31,8 @@
                 </thead>
                 <tbody>
                     {% for row in row_list %}
-					    <tr>
-						    <th>{{ row.id }}</th>
+					    <!--<tr>
+						    <td><b>{{ row.id }}</b></td>
 							<td>{{ row.organization }}</td>
 						    <td>{{ row.material_assigning }}</td>
 							<td>{{ row.account_purpose }}</td>
@@ -47,21 +47,36 @@
 							<td align="right">{{ row.paid2 }}</td>
 							<td align="right">{{ row.remainder }}</td>
 							<td>{{ row.note }}</td>
-                        </tr>
+                        </tr>-->
 					{% endfor %}
+
+					{% for i in zipped_result %}
+						    <tr>
+							    {% for j in i %}
+									<td>{{ j }}</td>
+						        {% endfor %}
+							</tr>
+					{% endfor %}	
+<!--
+					{% for i in B_list %}
+					    <tr>
+						    <td>{{ i }}</td>
+						</tr>
+					{% endfor %}
+-->
 					<tr>
-					    <th>Итого:</th>
+					    <td><b>Итого:</b></td>
 						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
-						<td align="right">{{ result_1|floatformat:2 }}</td>
 						<td></td>
 						<td></td>
 						<td></td>
-						<td align="right">{{ result_2|floatformat:2 }}</td>
 						<td></td>
+						<td align="right">{{ sum1|floatformat:2 }}</td>
 						<td></td>
+						<td align="right">{{ sum2|floatformat:2 }}</td>
 						<td></td>
 						<td></td>
 						<td></td>
