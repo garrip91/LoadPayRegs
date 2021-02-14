@@ -53,7 +53,9 @@
 					{% for i in zipped_result %}
 						    <tr>
 							    {% for j in i %}
+								{% if j:isinstance: int %}
 									<td>{{ j }}</td>
+								{% endif %}
 						        {% endfor %}
 							</tr>
 					{% endfor %}	
